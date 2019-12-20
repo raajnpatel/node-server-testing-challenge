@@ -1,5 +1,5 @@
 {
-  "name": "node-server-testing",
+  "team": "node-server-testing",
   "version": "1.0.0",
   "description": "Node Server Testing Challenge",
   "main": "server.js",
