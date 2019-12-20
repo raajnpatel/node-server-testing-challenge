@@ -1,24 +1,16 @@
-const express = require('express');
-
-const userRouter = require('../routes/users_router.js');
-const configureMiddleware = require('./configure-middleware.js');
+const express = require("express");
 
 const server = express();
+server.use(express.json());
 
-configureMiddleware(server);
+let teamsArray = [{ name: "Lakers" }, { name: "Bucks" }, { name: "Clippers" }];
 
-server.use('/api', userRouter);
-
-server.get('/', (req, res) => {
-    res
-        .status(200)
-        .json({ api: "It seems you've made your way inside." });
+server.get("/", (req, res) => {
+    res.status(200).json({ api: "up" });
 });
 
-server.get('/api', (req, res) => {
-    res
-        .status(200)
-        .json({ api: "You're getting closer." });
+server.get("/teams", (req, res) => {
+    res.status(200).json(teamsArray);
 });
 
 module.exports = server;
